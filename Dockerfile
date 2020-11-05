@@ -4,7 +4,6 @@ RUN apk update && apk add git
 COPY . $GOPATH/src/github.com/lacazethomas/peaceland/
 WORKDIR $GOPATH/src/github.com/lacazethomas/peaceland/
 RUN go get -d -v
-RUN echo $GOPATH
 RUN go build -o /go/bin/peaceland
 
 
