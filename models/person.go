@@ -5,9 +5,9 @@ import (
 )
 
 type Person struct {
-	FirstName string
-	LastName  string
-	Location
+	FirstName string   `json:"firstName"`
+	LastName  string   `json:"lastName"`
+	Location  Location `json:"location"`
 }
 
 func RandomPerson(maxX, maxY int) (p Person) {
