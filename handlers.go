@@ -20,6 +20,14 @@ func GeneratePersonsHandler(c *gin.Context) {
 	checkError(c, err)
 
 	var persons []models.Person
+
+	if param.MaxPersons >= 50000 {
+		c.JSON(406, gin.H{
+			"message": "reste calme",
+		})
+		return
+	}
+
 	for i := 0; i < param.MaxPersons; i++ {
 		persons = append(persons, models.RandomPerson(param.MaxX, param.MaxY))
 	}
