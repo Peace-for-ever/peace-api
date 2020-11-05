@@ -1,17 +1,17 @@
 package models
 
 import (
-	"math/rand"
-	"time"
+	"github.com/Pallinder/go-randomdata"
 )
 
+//Location struct
 type Location struct {
 	X int `json:"x"`
 	Y int `json:"y"`
 }
 
+//RandomLocation generate random location (x,y) from maxX,maxY
 func (l *Location) RandomLocation(maxX, maxY int) {
-	rand.Seed(time.Now().UnixNano())
-	l.X = rand.Intn(maxX-0+1) + 0
-	l.Y = rand.Intn(maxY-0+1) + 0
+	l.X = randomdata.Number(0, maxX)
+	l.Y = randomdata.Number(0, maxY)
 }

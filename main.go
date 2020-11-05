@@ -7,8 +7,8 @@ import (
 func main() {
 	r := gin.Default()
 
-	r.GET("/persons", GeneratePersons)
-	r.GET("/sentence", GenerateSentence)
+	r.GET("/persons", GeneratePersonsHandler)
+	r.GET("/sentence", GenerateSentenceHandler)
 
 	r.Run(":8083")
 }

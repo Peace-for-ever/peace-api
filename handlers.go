@@ -13,8 +13,8 @@ type Param struct {
 	MaxPersons int `form:"maxPersons"`
 }
 
-// GET /persons
-func GeneratePersons(c *gin.Context) {
+//GeneratePersonsHandler generate person
+func GeneratePersonsHandler(c *gin.Context) {
 	var param Param
 	err := c.Bind(&param)
 	checkError(c, err)
@@ -23,11 +23,11 @@ func GeneratePersons(c *gin.Context) {
 	for i := 0; i < param.MaxPersons; i++ {
 		persons = append(persons, models.RandomPerson(param.MaxX, param.MaxY))
 	}
-
 	c.JSON(http.StatusOK, persons)
 }
 
-func GenerateSentence(c *gin.Context) {
+//GenerateSentenceHandler generate sentence
+func GenerateSentenceHandler(c *gin.Context) {
 	c.JSON(http.StatusOK, models.GenerateSentence())
 }
 
