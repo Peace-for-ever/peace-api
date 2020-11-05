@@ -1,0 +1,12 @@
+version: "3.3"
+services: 
+    peaceland:
+        build:
+          context: go/src/github.com/lacazethomas/peaceland
+          dockerfile: go/src/github.com/lacazethomas/peaceland/Dockerfile
+        container_name: peaceland
+        restart: always
+        labels:
+          - traefik.http.routers.peaceland.rule=Host(`peaceland.thomaslacaze.fr`)
+        networks:
+          - mailcow-network
