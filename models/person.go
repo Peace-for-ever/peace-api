@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/Pallinder/go-randomdata"
+	"github.com/brianvoe/gofakeit"
 )
 
 //Person struct
@@ -15,8 +15,8 @@ type Person struct {
 func RandomPerson(maxX, maxY int) (p Person) {
 	p.Location.RandomLocation(10, 10)
 
-	p.FirstName = randomdata.FirstName(randomdata.RandomGender)
-	p.LastName = randomdata.LastName()
+	p.FirstName = gofakeit.Person().FirstName
+	p.LastName = gofakeit.Person().LastName
 
 	return p
 }

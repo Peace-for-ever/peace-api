@@ -1,10 +1,10 @@
 package models
 
-import "github.com/tjarratt/babble"
+import (
+	"github.com/brianvoe/gofakeit"
+)
 
 //GenerateSentence from anything
 func GenerateSentence() (s string) {
-	babbler := babble.NewBabbler()
-	babbler.Separator = " "
-	return babbler.Babble()
+	return gofakeit.Sentence(10)
 }
