@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/lacazethomas/peace-api/models"
+	"github.com/Peace-for-ever/peace-api/models"
 )
 
 type Param struct {

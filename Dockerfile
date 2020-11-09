@@ -1,15 +1,13 @@
 FROM golang:alpine as builder
 
 RUN apk update && apk add git 
-COPY . $GOPATH/src/github.com/lacazethomas/peaceland/
-WORKDIR $GOPATH/src/github.com/lacazethomas/peaceland/
+COPY . $GOPATH/src/github.com/Peace-for-ever/peace-api/
+WORKDIR $GOPATH/src/github.com/Peace-for-ever/peace-api/
 RUN go get -d -v
-RUN go build -o /go/bin/peaceland
+RUN go build -o /go/bin/peace-api
 
 
 FROM alpine
 EXPOSE 8083
-CMD [ "mkdir","/usr/share/dict/" ]
-COPY --from=builder /go/src/github.com/lacazethomas/peaceland/words.pre-dictionaries-common /usr/share/dict/words
-COPY --from=builder /go/bin/peaceland /bin/peaceland
-ENTRYPOINT ["/bin/peaceland"]
+COPY --from=builder /go/bin/peace-api /bin/peace-api
+ENTRYPOINT ["/bin/peace-api"]
