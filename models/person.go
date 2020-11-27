@@ -13,7 +13,7 @@ type Person struct {
 
 //RandomPerson generator with max location param
 func RandomPerson(maxX, maxY int) (p Person) {
-	p.Location.RandomLocation(10, 10)
+	p.Location.RandomLocation(maxX, maxY)
 
 	p.FirstName = gofakeit.Person().FirstName
 	p.LastName = gofakeit.Person().LastName
