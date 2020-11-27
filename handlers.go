@@ -7,6 +7,7 @@ import (
 	"github.com/lacazethomas/peace-api/models"
 )
 
+//Param handlers
 type Param struct {
 	MaxX       int `form:"maxX"`
 	MaxY       int `form:"maxY"`

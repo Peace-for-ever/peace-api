@@ -11,7 +11,7 @@ type Location struct {
 }
 
 //RandomLocation generate random location (x,y) from maxX,maxY
-func (l *Location)RandomLocation(maxX, maxY int) {
+func (l *Location) RandomLocation(maxX, maxY int) {
 	l.X = gofakeit.Number(0, maxX)
 	l.Y = gofakeit.Number(0, maxY)
 }
