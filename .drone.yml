@@ -13,7 +13,7 @@ steps:
   commands:
     - go build
 
-- name: docker  
+- name: push dockerhub  
   image: plugins/docker
   settings:
     repo: thomaslacaze/peace-api
