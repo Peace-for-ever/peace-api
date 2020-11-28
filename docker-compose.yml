@@ -8,5 +8,12 @@ services:
       restart: always
       labels:
         - traefik.http.routers.peaceland.rule=Host(`peaceland.thomaslacaze.fr`)
-      networks:
-        - mailcow-network
+
+#OR
+
+    peaceland:
+      image: thomaslacaze/peace-api:latest
+      container_name: peace-api
+      restart: always
+      labels:
+        - traefik.http.routers.peaceland.rule=Host(`peaceland.thomaslacaze.fr`)

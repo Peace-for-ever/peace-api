@@ -21,3 +21,19 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
+
+
+- name: deploy
+  image: appleboy/drone-ssh
+  settings:
+    host: 
+       from_secret: ssh_host 
+    username: 
+        from_secret: ssh_username
+    password: 
+        from_secret: ssh_password
+    port: 
+        from_secret: ssh_port
+    script:
+      - docker pull thomaslacaze/peace-api
+      - docker restart peace-api
