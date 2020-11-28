@@ -9,3 +9,12 @@ steps:
   commands:
     - go build
     - go test
+
+- name: docker  
+  image: plugins/docker
+  settings:
+    repo: thomaslacaze/peace-api
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
