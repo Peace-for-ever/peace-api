@@ -22,6 +22,9 @@ steps:
       from_secret: docker_username
     password:
       from_secret: docker_password
+  when:
+    branch:
+    - main
 
 - name: deploy
   image: appleboy/drone-ssh
@@ -37,3 +40,6 @@ steps:
     script:
       - docker pull thomaslacaze/peace-api
       - cd /root/mailcow-dockerized && docker-compose up -d peaceland
+    when:
+      branch:
+      - main
