@@ -51,7 +51,7 @@ func TestGetPersonsFlood(t *testing.T) {
 	expectedBytes, _ := json.Marshal(expected)
 
 	assert.Equal(t, 406, w.Code)
-	assert.Equal(t, string(expectedBytes)+"\n", w.Body.String())
+	assert.Equal(t, string(expectedBytes), w.Body.String())
 }
 
 func TestGetSentence(t *testing.T) {
