@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
+	"github.com/Peace-for-ever/peace-api/models"
 	"github.com/gin-gonic/gin"
-	"github.com/lacazethomas/peace-api/models"
 )
 
 //Param handlers
