@@ -4,11 +4,14 @@ kind: pipeline
 type: docker
 
 steps:
-- name: backend
+- name: test
+  image: golang
+  commands:
+    - go test
+- name: build
   image: golang
   commands:
     - go build
-    - go test
 
 - name: docker  
   image: plugins/docker
