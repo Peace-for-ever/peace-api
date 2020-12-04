@@ -8,7 +8,7 @@ import (
 
 //Drone struct
 type Drone struct {
-	Person      Person    `json:"person"`
+	Citizen     string    `json:"citizen"`
 	Message     string    `json:"message"`
 	Latitude    float64   `json:"latitude"`
 	Longitude   float64   `json:"longitude"`
@@ -21,7 +21,7 @@ func GenerateEvent() (d Drone) {
 	d.Message = gofakeit.Sentence(10)
 	d.Latitude = gofakeit.Longitude()
 	d.Longitude = gofakeit.Longitude()
-	d.Person = RandomPerson()
+	d.Citizen = gofakeit.Person().FirstName + " " + gofakeit.Person().LastName
 	d.Date = gofakeit.DateRange(time.Now().AddDate(0, 0, -1), time.Now())
 	d.Battery = gofakeit.Number(0, 100)
 	d.Temperature = gofakeit.Number(0, 40)

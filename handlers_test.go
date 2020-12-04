@@ -30,7 +30,7 @@ func TestGetPersons(t *testing.T) {
 	assert.Equal(t, 200, w.Code)
 	assert.Equal(t, IfThenElse(len(events) == 1, true, false), true, "Max amount is incorect")
 	//assert.Equal(t, models.Location{X: 0, Y: 0}, persons[0].Location, req.URL.String())
-	assert.Equal(t, IfThenElse(events[0].Person.LastName != "" && events[0].Person.FirstName != "", true, false), true, "Max person is incorect")
+	assert.Equal(t, IfThenElse(events[0].Citizen != "", true, false), true, "Max person is incorect")
 }
 
 func TestGetPersonsFlood(t *testing.T) {
