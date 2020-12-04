@@ -50,22 +50,6 @@ func TestGetPersonsFlood(t *testing.T) {
 	assert.Equal(t, string(expectedBytes), w.Body.String())
 }
 
-func TestGetSentence(t *testing.T) {
-	router := setupRouter()
-
-	w := httptest.NewRecorder()
-	req, _ := http.NewRequest("GET", "/sentence", nil)
-	router.ServeHTTP(w, req)
-	var sentence string
-	err := json.Unmarshal(w.Body.Bytes(), &sentence)
-	if err != nil {
-		t.Error("Unable to unmarshal response")
-	}
-
-	assert.Equal(t, 200, w.Code)
-	assert.Equal(t, IfThenElse(sentence != "", true, false), true, "Sentence is empty")
-}
-
 func IfThenElse(condition bool, a interface{}, b interface{}) interface{} {
 	if condition {
 		return a
