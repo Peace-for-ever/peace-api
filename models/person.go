@@ -6,15 +6,12 @@ import (
 
 //Person struct
 type Person struct {
-	FirstName string   `json:"firstName"`
-	LastName  string   `json:"lastName"`
-	Location  Location `json:"location"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
 }
 
 //RandomPerson generator with max location param
-func RandomPerson(maxX, maxY int) (p Person) {
-	p.Location.RandomLocation(maxX, maxY)
-
+func RandomPerson() (p Person) {
 	p.FirstName = gofakeit.Person().FirstName
 	p.LastName = gofakeit.Person().LastName
 

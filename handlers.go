@@ -9,9 +9,7 @@ import (
 
 //Param handlers
 type Param struct {
-	MaxX       int `form:"maxX"`
-	MaxY       int `form:"maxY"`
-	MaxPersons int `form:"maxPersons"`
+	Amount int `form:"amount"`
 }
 
 //GeneratePersonsHandler generate person
@@ -20,24 +18,19 @@ func GeneratePersonsHandler(c *gin.Context) {
 	err := c.Bind(&param)
 	checkError(c, err)
 
-	var persons []models.Person
+	var events []models.Drone
 
-	if param.MaxPersons >= 50000 {
+	if param.Amount >= 50000 {
 		c.JSON(406, gin.H{
 			"message": "reste calme",
 		})
 		return
 	}
 
-	for i := 0; i < param.MaxPersons; i++ {
-		persons = append(persons, models.RandomPerson(param.MaxX, param.MaxY))
+	for i := 0; i < param.Amount; i++ {
+		events = append(events, models.GenerateEvent())
 	}
-	c.JSON(http.StatusOK, persons)
-}
-
-//GenerateSentenceHandler generate sentence
-func GenerateSentenceHandler(c *gin.Context) {
-	c.JSON(http.StatusOK, models.GenerateSentence())
+	c.JSON(http.StatusOK, events)
 }
 
 func checkError(c *gin.Context, err error) {
