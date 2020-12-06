@@ -19,7 +19,7 @@ type Drone struct {
 
 func GenerateEvent() (d Drone) {
 	d.Message = gofakeit.Sentence(10)
-	d.Latitude = gofakeit.Longitude()
+	d.Latitude = gofakeit.Latitude()
 	d.Longitude = gofakeit.Longitude()
 	d.Citizen = gofakeit.Person().FirstName + " " + gofakeit.Person().LastName
 	d.Date = gofakeit.DateRange(time.Now().AddDate(0, 0, -1), time.Now())
