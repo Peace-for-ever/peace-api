@@ -15,6 +15,7 @@ type Drone struct {
 	Date        time.Time `json:"date"`
 	Battery     int       `json:"battery"`
 	Temperature int       `json:"temperature"`
+	Country     string    `json:"country"`
 }
 
 func GenerateEvent() (d Drone) {
@@ -22,6 +23,7 @@ func GenerateEvent() (d Drone) {
 	city := gofakeit.Number(1, 10596)
 	d.Latitude = Cities[city].Latitude
 	d.Longitude = Cities[city].Longitude
+	d.Country = Cities[city].Country
 	d.Citizen = gofakeit.Person().FirstName + " " + gofakeit.Person().LastName
 	d.Date = gofakeit.DateRange(time.Now().AddDate(0, 0, -1), time.Now())
 	d.Battery = gofakeit.Number(0, 100)
