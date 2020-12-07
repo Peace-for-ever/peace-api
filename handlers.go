@@ -20,7 +20,7 @@ func GeneratePersonsHandler(c *gin.Context) {
 
 	var events []models.Drone
 
-	if param.Amount >= 50000 {
+	if param.Amount >= 500000 {
 		c.JSON(406, gin.H{
 			"message": "reste calme",
 		})
