@@ -25,7 +25,7 @@ func GenerateEvent() (d Drone) {
 	d.Longitude = Cities[city].Longitude
 	d.Country = Cities[city].Country
 	d.Citizen = gofakeit.Person().FirstName + " " + gofakeit.Person().LastName
-	d.Date = gofakeit.DateRange(time.Now().AddDate(0, 0, -1), time.Now())
+	d.Date = gofakeit.DateRange(time.Now().AddDate(0, 0, -7), time.Now())
 	d.Battery = gofakeit.Number(0, 100)
 	d.Temperature = gofakeit.Number(0, 40)
 
