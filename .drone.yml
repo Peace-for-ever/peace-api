@@ -40,6 +40,6 @@ steps:
     script:
       - docker pull thomaslacaze/peace-api
       - cd /root/mailcow-dockerized && docker-compose up -d peaceland
-    when:
-      branch:
-      - main
+  when:
+    branch:
+    - main
