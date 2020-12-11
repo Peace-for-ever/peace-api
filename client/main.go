@@ -22,7 +22,7 @@ func main() {
 	defer cancel()
 	r, err := c.EventService(ctx, &eventpb.EventRequest{Amount: 10})
 	if err != nil {
-		log.Fatalf("could not greet: %v", err)
+		log.Fatalf("could not use EventService: %v", err)
 	}
-	log.Printf("Greeting: %s", r.GetEvents())
+	log.Printf("Events: %s", r.GetEvents()[0])
 }
