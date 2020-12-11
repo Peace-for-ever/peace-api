@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Set up a connection to the server.
-	conn, err := grpc.Dial("localhost:8083", grpc.WithInsecure(), grpc.WithBlock())
+	conn, err := grpc.Dial("peaceland.thomaslacaze.fr:8083", grpc.WithInsecure(), grpc.WithBlock())
 	if err != nil {
 		log.Fatalf("did not connect: %v", err)
 	}
